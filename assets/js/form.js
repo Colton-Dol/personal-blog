@@ -7,7 +7,7 @@ const submitButton = document.getElementById('submit');
 const error = document.getElementById('error');
 // TODO: Create a function that handles the form submission. Grab the form data and store it in local storage, then redirect to the blog page using the `redirectPage` function. If the form is submitted with missing data, display an error message to the user.
 const formSubmit = function () {
-    const user = {
+    const post = {
         username: getUsername.value,
         title: getTitle.value,
         content: getContent.value
@@ -16,8 +16,8 @@ const formSubmit = function () {
     if (getUsername.value === '' || getTitle.value === '' || getContent.value === '') {
         error.textContent = 'Please complete the form'
     } else {
-        localStorage.setItem('user', JSON.stringify(user));
-        redirectPage('../blog.html');
+        localStorage.setItem('post', JSON.stringify(post));
+        redirectPage('../blog.html')
         getUsername.value = '';
         getTitle.value = '';
         getContent.value = '';
