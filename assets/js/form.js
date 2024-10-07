@@ -16,7 +16,7 @@ const formSubmit = function () {
     if (getUsername.value === '' || getTitle.value === '' || getContent.value === '') {
         error.textContent = 'Please complete the form'
     } else {
-        localStorage.setItem('post', JSON.stringify(post));
+        localStorage.setItem(`${post.title}`, JSON.stringify(post));
         redirectPage('../blog.html')
         getUsername.value = '';
         getTitle.value = '';

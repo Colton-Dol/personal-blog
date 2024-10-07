@@ -5,13 +5,17 @@ const toggle = document.getElementById('toggle');
 const modeSwitch = function () {
   if (getBody.getAttribute('class') === 'light') {
     getBody.setAttribute('class', 'dark');
+    toggle.textContent = 'Light'
+    toggle.style.color = 'white';
   } else {
     getBody.setAttribute('class', 'light');
+    toggle.textContent = 'Dark'
+    toggle.style.color = 'black';
   };
 
   let mode = getBody.getAttribute('class')
 
-  localStorage.setItem('mode', mode);
+  localStorage.setItem('mode', JSON.stringify(mode));
 };
 
 toggle.addEventListener('click', () => {modeSwitch()});
@@ -21,7 +25,7 @@ const readLocalStorage = () => {if (localStorage.length === 0) {return []} else 
 
 // TODO: Create a function called `storeLocalStorage` that takes a given object and saves the new data to the existing blog data in local storage.
 const storeLocalStorage = function () {
-  
+  localStorage.setItem('posted', JSON.stringify(storedPosts))
 }
 
 // ! Use the following function whenever you need to redirect to a different page
